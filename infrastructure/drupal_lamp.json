@@ -1,20 +1,28 @@
 {
   "drupal": {
     "sites": {
-      "example": {
+      "nbmshow": {
         "active": true,
         "deploy": {
-          "action": ["deploy", "install"],
+          "action": ["update"],
           "releases": 1
         },
+        "drush_make": {
+          "api": "2",
+          "files": {
+            "default": "build-showsites_nbm.make",
+            "core": "drupal-org-core.make"
+          },
+          "template": false
+        },
         "drupal": {
-          "version": "7.26",
+          "version": "7.27",
           "install": {
             "install_configure_form.update_status_module": "'array(FALSE,FALSE)'",
             "--clean-url": 1
           },
           "settings": {
-            "profile": "standard",
+            "profile": "showsites_nbm",
             "files": "sites/default/files",
             "cookbook": "drupal",
             "settings": {
@@ -22,7 +30,7 @@
                 "location": "sites/default/settings.php"
               }
             },
-            "db_name": "example",
+            "db_name": "nbmshow",
             "db_host": "localhost",
             "db_prefix": "",
             "db_driver": "mysql",
@@ -31,15 +39,96 @@
         },
         "repository": {
           "host": "github.com",
-          "uri": "https://github.com/drupal/drupal.git",
-          "revision": "7.26"
+          "uri": "git@bitbucket.org:nbminc/showsites_nbm.git",
+          "revision": "lamp"
         },
         "web_app": {
           "80": {
-            "server_name": "example.local",
+            "server_name": "nbmshow.local",
             "rewrite_engine": "On",
-            "docroot": "/srv/www/example/current"
+            "docroot": "/srv/www/nbmshow/current"
           }
+        }
+      },
+      "performancebiz": {
+        "active": true,
+        "deploy": {
+          "action": ["deploy", "install"],
+          "releases": 1
+        },
+        "drush_make": {
+          "api": "2",
+          "files": {
+            "default": "build-pub-phb.make",
+            "core": "drupal-org-core.make"
+          },
+          "template": false
+        },
+        "drupal": {
+          "version": "7.27",
+          "install": {
+            "install_configure_form.update_status_module": "'array(FALSE,FALSE)'",
+            "--clean-url": 1
+          },
+          "settings": {
+            "profile": "pub_phb",
+            "files": "sites/default/files",
+            "cookbook": "drupal",
+            "settings": {
+              "default": {
+                "location": "sites/default/settings.php"
+              }
+            },
+            "db_name": "performancebiz",
+            "db_host": "localhost",
+            "db_prefix": "",
+            "db_driver": "mysql",
+            "db_file": ""
+          }
+        },
+        "repository": {
+          "host": "github.com",
+          "uri": "git@bitbucket.org:nbminc/pub_phb.git",
+          "revision": "make"
+        },
+        "web_app": {
+          "80": {
+            "server_name": "performancebiz.local",
+            "rewrite_engine": "On",
+            "docroot": "/srv/www/performancebiz/current"
+          }
+        }
+      }
+    }
+  },
+  "nfs_exports": {
+    "/srv/www/nbmshow/current": {
+      "clients": {
+        "*": {
+          "writeable": true,
+          "sync": false,
+          "options": [
+            "no_subtree_check",
+            "all_squash",
+            "async"
+          ],
+          "anon_user_name": "www-data",
+          "anon_group_name": "www-data"
+        }
+      }
+    },
+    "/srv/www/performancebiz/current": {
+      "clients": {
+        "*": {
+          "writeable": true,
+          "sync": false,
+          "options": [
+            "no_subtree_check",
+            "all_squash",
+            "async"
+          ],
+          "anon_user_name": "www-data",
+          "anon_group_name": "www-data"
         }
       }
     }
