@@ -4,7 +4,7 @@
       "nbmshow": {
         "active": true,
         "deploy": {
-          "action": ["update"],
+          "action": ["deploy", "install"],
           "releases": 1
         },
         "drush_make": {
@@ -102,22 +102,7 @@
     }
   },
   "nfs_exports": {
-    "/srv/www/nbmshow/current": {
-      "clients": {
-        "*": {
-          "writeable": true,
-          "sync": false,
-          "options": [
-            "no_subtree_check",
-            "all_squash",
-            "async"
-          ],
-          "anon_user_name": "www-data",
-          "anon_group_name": "www-data"
-        }
-      }
-    },
-    "/srv/www/performancebiz/current": {
+    "/assets": {
       "clients": {
         "*": {
           "writeable": true,
