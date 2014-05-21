@@ -4,7 +4,7 @@
       "nbmshow": {
         "active": true,
         "deploy": {
-          "action": ["deploy", "install"],
+          "action": ["update"],
           "releases": 1
         },
         "drush_make": {
@@ -53,7 +53,7 @@
       "performancebiz": {
         "active": true,
         "deploy": {
-          "action": ["deploy", "install"],
+          "action": ["deploy"],
           "releases": 1
         },
         "drush_make": {
