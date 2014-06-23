@@ -89,7 +89,7 @@
         "repository": {
           "host": "github.com",
           "uri": "git@bitbucket.org:nbminc/pub_phb.git",
-          "revision": "make"
+          "revision": "master"
         },
         "web_app": {
           "80": {
