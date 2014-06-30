@@ -53,7 +53,7 @@
       "performancebiz": {
         "active": true,
         "deploy": {
-          "action": ["deploy"],
+          "action": ["deploy", "install"],
           "releases": 1
         },
         "drush_make": {
