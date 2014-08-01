@@ -4,7 +4,7 @@
       "nbmshow": {
         "active": true,
         "deploy": {
-          "action": ["update"],
+          "action": ["deploy", "install"],
           "releases": 1
         },
         "drush_make": {
@@ -40,7 +40,7 @@
         "repository": {
           "host": "github.com",
           "uri": "git@bitbucket.org:nbminc/showsites_nbm.git",
-          "revision": "lamp"
+          "revision": "master"
         },
         "web_app": {
           "80": {
